@@ -6,7 +6,7 @@ import { Col, Row, message, DatePicker } from 'antd';
 import Spinner from '../components/Spinner';
 import { Link } from 'react-router-dom';
 import moment from "moment";
-import { set } from 'mongoose';
+// import { set } from 'mongoose';
 const { RangePicker } = DatePicker;
 function Home() {
   const { cars } = useSelector(state => state.carsReducer);
