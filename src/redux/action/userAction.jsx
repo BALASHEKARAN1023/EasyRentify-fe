@@ -14,13 +14,13 @@ export const userLogin = (reqObj) => async dispatch => {
             await message.success('Login Success')
             setTimeout(() => {
 
-                window.location.href = "/admin";
+                window.location = "/admin";
             }, 500);
         } else {
             await message.success('Login Success')
             setTimeout(() => {
 
-                window.location.href = "/home";
+                window.location= "/home";
             }, 500);
         }
 

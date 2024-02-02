@@ -70,7 +70,7 @@ function DefaultLayout(props) {
         <div onClick={() => {
 
           localStorage.removeItem('users');
-          window.location.href = '/';
+          window.location = '/';
           //  window.location.reload();
         }}><div>
             <li style={{ color: "orangered" }}>
