@@ -13,14 +13,14 @@ export const userLogin = (reqObj) => async dispatch => {
         if (roleChecker === "admin") {
             message.success('Login Success')
             setTimeout(() => {
-                navigate("/admin");
-                // window.location.href = "/admin";
+                // navigate("/admin");
+                window.location.href = "/admin";
             }, 500);
         } else {
             message.success('Login Success')
             setTimeout(() => {
-                navigate("/home");
-                // window.location.href = "/home";
+                // navigate("/home");
+                window.location.href = "/home";
             }, 500);
         }
 
