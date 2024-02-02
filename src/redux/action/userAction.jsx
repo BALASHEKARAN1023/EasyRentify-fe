@@ -1,12 +1,12 @@
 import { message } from "antd";
 import axios from "axios";
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "https://easyrentify.onrender.com/";
+axios.defaults.baseURL = "https://easyrentify.onrender.com";
 export const userLogin = (reqObj) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
     try {
-        const response = await axios.post('api/users/login', reqObj)
+        const response = await axios.post('/api/users/login', reqObj)
         localStorage.setItem('users', JSON.stringify(response.data));
         const roleChecker = response.data.role;
         if (roleChecker === "admin") {
@@ -34,7 +34,7 @@ export const userLogin = (reqObj) => async dispatch => {
 export const userRegister = (reqObj) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
     try {
-        await axios.post('api/users/register', reqObj);
+        await axios.post('/api/users/register', reqObj);
         message.success('Registeration Success')
         setTimeout(() => {
             window.location.href = "/login";

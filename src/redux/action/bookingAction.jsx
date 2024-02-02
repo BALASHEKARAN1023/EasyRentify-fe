@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { message } from 'antd';
 
-axios.defaults.baseURL = "https://easyrentify.onrender.com/";
+axios.defaults.baseURL = "https://easyrentify.onrender.com";
 
 export const bookCar = (reqObj) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })

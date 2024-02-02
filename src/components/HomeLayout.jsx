@@ -5,9 +5,9 @@ function HomeLayout(props) {
         {
             key: '1',
             label: (
-                <a href="/login" style={{ textDecoration: 'none', color: "orangered" }}>
+                <Link to="/login" style={{ textDecoration: 'none', color: "orangered" }}>
                     Login
-                </a>
+                </Link>
             ),
         }
     ];

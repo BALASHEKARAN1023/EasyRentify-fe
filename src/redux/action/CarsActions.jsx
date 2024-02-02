@@ -1,6 +1,6 @@
 import { message } from 'antd';
 import axios from 'axios';
-axios.defaults.baseURL = "https://easyrentify.onrender.com/";
+axios.defaults.baseURL = "https://easyrentify.onrender.com";
 export const getAllCars = () => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
