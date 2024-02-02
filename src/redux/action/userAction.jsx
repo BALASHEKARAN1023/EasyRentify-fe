@@ -1,26 +1,26 @@
 import { message } from "antd";
 import axios from "axios";
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "https://easyrentify.onrender.com";
 export const userLogin = (reqObj) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
-    const navigate=useNavigate();
+
     try {
         const response = await axios.post('/api/users/login', reqObj)
         localStorage.setItem('users', JSON.stringify(response.data));
         const roleChecker = await response.data.role;
         if (roleChecker === "admin") {
-           await message.success('Login Success')
+            await message.success('Login Success')
             setTimeout(() => {
-                // navigate("/admin");
+
                 window.location.href = "/admin";
             }, 500);
         } else {
-           await message.success('Login Success')
+            await message.success('Login Success')
             setTimeout(() => {
-                // navigate("/home");
-               window.location.href = "/home";
+
+                window.location.href = "/home";
             }, 500);
         }
 
@@ -35,7 +35,7 @@ export const userLogin = (reqObj) => async dispatch => {
 }
 
 export const userRegister = (reqObj) => async dispatch => {
-    const navigate=  useNavigate();
+    const navigate = useNavigate();
     dispatch({ type: 'LOADING', payload: true })
     try {
         await axios.post('/api/users/register', reqObj);

@@ -10,9 +10,9 @@ AOS.init();
 function Login() {
   const dispatch = useDispatch();
   const { loading } = useSelector(state => state.alertsReducer)
-  function onFinish(values) {
+   function  onFinish(values) {
     // values.preventDefault();
-    dispatch(userLogin(values));
+     dispatch(userLogin(values));
   }
   return (
     <div className='login'>
