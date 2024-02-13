@@ -10,7 +10,7 @@ AOS.init();
 function Login() {
   const dispatch = useDispatch();
   const { loading } = useSelector(state => state.alertsReducer);
-  const navigate = useNavigatevigate();
+  const navigate =useNavigate();
    function  onFinish(values) {
      dispatch(userLogin(values,navigate));
   }
