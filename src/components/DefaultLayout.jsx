@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Dropdown, Row, Col, message } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function DefaultLayout(props) {
   const user = JSON.parse(localStorage.getItem('users'));
-
+  const navigate=useNavigate();
   const [isAlert, setAlert] = useState(false);
   const [admin, setAdmin] = useState(false);
   useEffect(() => {
@@ -70,8 +70,8 @@ function DefaultLayout(props) {
         <div onClick={() => {
 
           localStorage.removeItem('users');
-          window.location = '/';
-          //  window.location.reload();
+          navigate('/');
+          
         }}><div>
             <li style={{ color: "orangered" }}>
               Logout

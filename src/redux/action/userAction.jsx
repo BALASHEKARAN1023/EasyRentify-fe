@@ -3,7 +3,7 @@ import axios from "axios";
 // import { useNavigate } from 'react-router-dom';
 axios.defaults.withCredentials = true;
 axios.defaults.baseURL = "https://easyrentify.onrender.com";
-export const userLogin = (reqObj) => async dispatch => {
+export const userLogin = (reqObj,navigate) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
     try {
@@ -14,13 +14,13 @@ export const userLogin = (reqObj) => async dispatch => {
             await message.success('Login Success')
             setTimeout(() => {
 
-                window.location = "/admin";
+                navigate("/admin");
             }, 500);
         } else {
             await message.success('Login Success')
             setTimeout(() => {
 
-                window.location= "/home";
+                navigate("/home"); 
             }, 500);
         }
 
@@ -34,14 +34,14 @@ export const userLogin = (reqObj) => async dispatch => {
     }
 }
 
-export const userRegister = (reqObj) => async dispatch => {
-    const navigate = useNavigate();
+export const userRegister = (reqObj,navigate) => async dispatch => {
+
     dispatch({ type: 'LOADING', payload: true })
     try {
         await axios.post('/api/users/register', reqObj);
         await message.success('Registeration Success')
         setTimeout(() => {
-            navigate("/login");
+            navigate("/home");
             // window.location.href = "/login";
         }, 500);
         dispatch({ type: 'LOADING', payload: false })

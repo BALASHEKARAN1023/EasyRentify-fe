@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Row, Col, Form, Input, message } from "antd";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { userRegister } from '../redux/action/userAction';
 import AOS from 'aos';
@@ -10,12 +10,13 @@ AOS.init();
 function Register() {
   const dispatch = useDispatch();
   const { loading } = useSelector(state => state.alertsReducer);
+  const navigate = useNavigate();
   function onFinish(values) {
     if (values.password !== values.confirmpassword) {
          message.warning("Please check Password");
     } else {
 
-      dispatch(userRegister(values));
+      dispatch(userRegister(values,navigate));
     }
   }
   return (
