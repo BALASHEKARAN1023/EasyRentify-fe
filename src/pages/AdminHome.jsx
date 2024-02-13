@@ -13,7 +13,7 @@ function AdminHome() {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getAllCars());
-    }, [])
+    }, [dispatch])
 
     const [totalCars, setTotalCars] = useState([]);
     useEffect(() => {
@@ -37,7 +37,7 @@ function AdminHome() {
             {loading == true && (<Spinner />)}
 
             <Row justify='center' gutter={16} >
-                {totalCars.map(car => {
+                {Array.isArray(totalCars) && totalCars.map(car => {
                     return <Col lg={5} sm={24} xs={24}>
                         <div className='car p-2 bs1'>
                             <img src={car.image} alt="carimage" className='carimg' />

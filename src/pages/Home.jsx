@@ -14,15 +14,16 @@ function Home() {
   const dispatch = useDispatch();
   const [totalCars, setTotalCars] = useState([]);
 
-
+  
   useEffect(() => {
     dispatch(getAllCars());
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     //cars[]
     setTotalCars(cars);
   }, [cars])//[cars]
+  console.log(totalCars);
   function setFilter(values) {
     var temp = [];
     var selectedFrom = values[0].format('MMM DD YYYY HH:mm');
@@ -82,7 +83,7 @@ function Home() {
 
       <Row justify='center' gutter={16} >
         {/* //demo.map corrent is cars.map after use Backend for the testing  */}
-        {totalCars.map(car => {
+        {Array.isArray(totalCars) &&totalCars.map(car => {
           return <Col lg={5} sm={24} xs={24}>
             <div className='car p-2 bs1'>
               <img src={car.image} alt="carimage" className='carimg' />
