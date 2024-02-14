@@ -242,6 +242,15 @@ h3 {
     background-repeat: no-repeat;
     opacity: 1;
   }
+  .login-logo {
+    position: absolute;
+    left: 35%;
+    right: 0;
+    top: 60%;
+    bottom: 50%;
+    transform: translateY(-50%,-50%);
+    font-size: 30px;
+}
 }
 @media only screen and (min-device-width: 768px) {
   .container1 {
@@ -253,4 +262,64 @@ h3 {
     background-repeat: no-repeat;
     opacity: 1;
   }
+}
+@media screen and (max-width: 420px) {
+  .container1 {
+      position:relative;
+      background-image: url(https://wallpapercave.com/wp/wp9133599.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 1
+  }
+  .login-logo {
+  position: absolute;
+  left: 35%;
+  right: 0;
+  top: 60%;
+  bottom: 50%;
+  transform: translateY(-50%,-50%);
+  font-size: 25px;
+}
+}
+@media screen and (max-width: 435px) {
+  .container1 {
+      position:relative;
+      background-image: url(https://wallpapercave.com/wp/wp9133599.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 1
+  }
+  .login-logo {
+  position: absolute;
+  left: 35%;
+  right: 0;
+  top: 60%;
+  bottom: 50%;
+  transform: translateY(-50%,-50%);
+  font-size: 25px;
+}
+}
+@media screen and (max-width: 285px) {
+  .container1 {
+      position:relative;
+      background-image: url(https://wallpapercave.com/wp/wp9133599.jpg);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      opacity: 1
+  }
+  .login-logo {
+  position: absolute;
+  left: 35%;
+  right: 0;
+  top: 60%;
+  bottom: 50%;
+  transform: translateY(-50%,-50%);
+  font-size: 18px;
+}
 }
