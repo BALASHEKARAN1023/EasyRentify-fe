@@ -41,8 +41,7 @@ export const userRegister = (reqObj,navigate) => async dispatch => {
         await axios.post('/api/users/register', reqObj);
         await message.success('Registeration Success')
         setTimeout(() => {
-            navigate("/home");
-            // window.location.href = "/login";
+            navigate("/login");
         }, 500);
         dispatch({ type: 'LOADING', payload: false })
 
