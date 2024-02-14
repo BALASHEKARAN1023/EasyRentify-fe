@@ -4,7 +4,7 @@ import { Col, Form, Input, Row } from 'antd'
 import { useDispatch, useSelector } from 'react-redux';
 import { addCar, editCar, getAllCars } from '../redux/action/CarsActions';
 import Spinner from '../components/Spinner';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 function EditCar() {
 
   const { cars } = useSelector(state => state.carsReducer)
@@ -13,6 +13,7 @@ function EditCar() {
   const [car, setCar] = useState()
   const [totalCars, setTotalCars] = useState([]);
   const { carid } = useParams();
+  const navigate=useNavigate();
   useEffect(() => {
     if (cars.length == 0) {
 
@@ -27,7 +28,7 @@ function EditCar() {
 
   function onFinish(val) {
     val._id = car._id;
-    dispatch(editCar(val));
+    dispatch(editCar(val,navigate));
 
   }
   return (

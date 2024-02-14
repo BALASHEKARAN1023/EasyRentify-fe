@@ -4,14 +4,16 @@ import { Col, Form, Input, Row } from 'antd'
 import { useDispatch, useSelector } from 'react-redux';
 import { addCar } from '../redux/action/CarsActions';
 import Spinner from '../components/Spinner';
+import { useNavigate } from 'react-router-dom';
 
 function AddCar() {
   const dispatch = useDispatch();
-  const { loading } = useSelector(state => state.alertsReducer)
+  const { loading } = useSelector(state => state.alertsReducer);
+  const navigate=useNavigate();
   function onFinish(val) {
     val.bookedTimeSlots= [];
-    dispatch(addCar(val));
-    console.log(val);
+    dispatch(addCar(val,navigate));
+   
   }
   return (
     <DefaultLayout>

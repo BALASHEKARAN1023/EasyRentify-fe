@@ -16,7 +16,7 @@ export const getAllCars = () => async dispatch => {
 }
 
 
-export const addCar = (reqObj) => async dispatch => {
+export const addCar = (reqObj, navigate) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
     try {
@@ -25,7 +25,7 @@ export const addCar = (reqObj) => async dispatch => {
         dispatch({ type: 'LOADING', payload: false })
         message.success("New car added succesfully");
         setTimeout(() => {
-            window.location.href = "/admin";
+            navigate("/admin");
         }, 500)
     } catch (error) {
         console.log(error);
@@ -35,7 +35,7 @@ export const addCar = (reqObj) => async dispatch => {
 }
 
 
-export const editCar = (reqObj) => async dispatch => {
+export const editCar = (reqObj, navigate) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
     try {
@@ -43,7 +43,7 @@ export const editCar = (reqObj) => async dispatch => {
         dispatch({ type: 'LOADING', payload: false })
         message.success("Car details updated  succesfully");
         setTimeout(() => {
-            window.location.href = "/admin";
+            navigate("/admin");
         }, 500)
     } catch (error) {
         console.log(error);

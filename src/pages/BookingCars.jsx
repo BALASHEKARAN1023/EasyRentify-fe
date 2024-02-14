@@ -9,7 +9,7 @@ import { bookCar } from '../redux/action/bookingAction';
 import StripeCheckout from 'react-stripe-checkout';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 AOS.init();
 
 
@@ -27,6 +27,7 @@ function BookingCars() {
   const [driver, setDriver] = useState(false);
   const [totalAmount, setTotalAmount] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const navigate=useNavigate();
   const { carid } = useParams();
   useEffect(() => {
     if (cars.length == 0) {
@@ -70,7 +71,7 @@ function BookingCars() {
         to
       }
     }
-    dispatch(bookCar(reqObj));
+    dispatch(bookCar(reqObj,navigate));
   }
   return (
     <DefaultLayout>

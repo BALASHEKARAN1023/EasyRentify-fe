@@ -3,16 +3,15 @@ import { message } from 'antd';
 
 axios.defaults.baseURL = "https://easyrentify.onrender.com";
 
-export const bookCar = (reqObj) => async dispatch => {
+export const bookCar = (reqObj, navigate) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
     try {
-        const response = await axios.post('/api/bookings/bookcar', reqObj)
-
+        const response = await axios.post('/api/bookings/bookcar', reqObj);
         dispatch({ type: 'LOADING', payload: false })
         message.success('Your Car booked succesfully')
         setTimeout(() => {
-            window.location.href = "/userbookings";
+            navigate("/userbookings");
         }, 500);
     } catch (error) {
         console.log(error);
