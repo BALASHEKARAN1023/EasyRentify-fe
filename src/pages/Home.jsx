@@ -23,7 +23,7 @@ function Home() {
     //cars[]
     setTotalCars(cars);
   }, [cars])//[cars]
-  console.log(totalCars);
+ 
   function setFilter(values) {
     var temp = [];
     var selectedFrom = values[0].format('MMM DD YYYY HH:mm');
