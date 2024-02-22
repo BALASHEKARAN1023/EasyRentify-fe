@@ -54,7 +54,7 @@ export const editCar = (reqObj, navigate) => async dispatch => {
 
 
 
-export const deleteCar = (reqObj) => async dispatch => {
+export const deleteCar = (reqObj,navigate) => async dispatch => {
     dispatch({ type: 'LOADING', payload: true })
 
     try {
@@ -62,7 +62,7 @@ export const deleteCar = (reqObj) => async dispatch => {
         dispatch({ type: 'LOADING', payload: false })
         message.success("Car deleted succesfully");
         setTimeout(() => {
-            window.location.reload();
+            navigate("/admin");
         }, 500)
     } catch (error) {
         console.log(error);

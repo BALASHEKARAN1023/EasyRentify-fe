@@ -4,13 +4,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deleteCar, getAllCars } from '../redux/action/CarsActions';
 import { Col, Row, message, Popconfirm } from 'antd';
 import Spinner from '../components/Spinner';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 
 function AdminHome() {
     const { cars } = useSelector(state => state.carsReducer);
     const { loading } = useSelector(state => state.alertsReducer)
     const dispatch = useDispatch();
+    const navigate=useNavigate();
     useEffect(() => {
         dispatch(getAllCars());
     }, [dispatch])
@@ -55,7 +56,7 @@ function AdminHome() {
                                     <Popconfirm
                                         title="Delete the Car"
                                         description="Are you sure to delete this car?"
-                                        onConfirm={() => { dispatch(deleteCar({ carid: car._id })) }}
+                                        onConfirm={() => { dispatch(deleteCar({ carid: car._id },navigate)) }}
                                         // onCancel={cancel}
                                         okText="Yes"
                                         cancelText="No"
