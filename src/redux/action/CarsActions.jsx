@@ -62,7 +62,7 @@ export const deleteCar = (reqObj,navigate) => async dispatch => {
         dispatch({ type: 'LOADING', payload: false })
         message.success("Car deleted succesfully");
         setTimeout(() => {
-            navigate("/admin");
+            navigate("/home");
         }, 500)
     } catch (error) {
         console.log(error);
